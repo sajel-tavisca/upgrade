@@ -1,0 +1,35 @@
+{
+  "name": "wdio-upgrade",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run run-all",
+    "step1": "node 1updateJsextensionRequired.js --dir %DIR% ",
+    "step2": "node 2updatePackageRequired.js --dir %DIR%",
+    "step3": "node 3updateTsconfig.js --dir %DIR%",
+    "step4": "node 4updateinterfacetypeimportexportRequired.js --dir %DIR%",
+    "step5": "node 5updateinterfacetypeimportexportRequired2.js --dir %DIR%",
+    "step6": "node 6updateTsFilewithReplaceContentRequired.js --dir %DIR%",
+    "step7": "node 7updateaddAsyncToAwaitRequired.js --dir %DIR%",
+    "step8": "node 8updateAppConfigRequired.js --dir %DIR%",
+    "step9": "node 9updateImportsinDataCollatorRequired.js --dir %DIR%",
+    "step10": "node 91updateWdioRequired.js --dir %DIR%",
+    "run-all": "cross-env DIR=%DIR% run-s step1 step2 step3 step4 step5 step6 step7 step8 step10 step9"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@babel/parser": "^7.27.7",
+    "glob": "^11.0.3",
+    "recast": "^0.23.11",
+    "ts-morph": "^26.0.0",
+    "yargs": "^18.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "npm-run-all": "^4.1.5"
+  }
+}

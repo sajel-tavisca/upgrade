@@ -1,0 +1,27 @@
+import * as appConfigDefault from './app-config.default.json' assert {type: "json"};
+import { Utils } from '../../../index.js';
+import path from 'path';
+import deepmerge from 'deepmerge';
+import { pathToFileURL } from 'url';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+// Get the current file URL
+const __filename = fileURLToPath(import.meta.url);
+
+// Get the directory name of the current module
+const __dirname = dirname(__filename);
+
+const executionParams = Utils.getExecutionParams();
+const testEnvironment = executionParams?.testEnvironment ?? appConfigDefault.defaultEnvironment;
+
+
+const AppConfigurations: any = async function () {
+  const appConfigPath = path.resolve(__dirname, `./app-config.${testEnvironment}.json`)
+  const currentEnvAppConfig = await import(pathToFileURL(appConfigPath).href, {
+    assert: { type: 'json' }
+  });
+  return deepmerge(appConfigDefault, currentEnvAppConfig)['default'];
+}
+
+export { AppConfigurations };
