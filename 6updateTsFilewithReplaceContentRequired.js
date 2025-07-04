@@ -50,8 +50,8 @@ function updateTsFiles(directory) {
           // });
 
           // Regular expression to find occurrences of '@orxe-test-automation/e2e'
-          // regex = /['"]@orxe-test-automation\/e2e['"]/g;
-          // updatedData = updatedData.replace(regex, "'@orxe-test-automation/e2e/src/index.js'");
+          regex = /(['"])@orxe-test-automation\/e2e(?:\/lib)?\1/g;
+          updatedData = updatedData.replace(regex, "'@orxe-test-automation/e2e/src/index.js'");
 
           // Regular expression to find occurrences of 'containerUtil.get' not preceded by 'await'
           regex = /(?<!await\s)containerUtil\.get/g;
