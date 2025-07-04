@@ -15,7 +15,8 @@
     "step8": "node 8updateAppConfigRequired.js --dir %DIR%",
     "step9": "node 9updateImportsinDataCollatorRequired.js --dir %DIR%",
     "step10": "node 91updateWdioRequired.js --dir %DIR%",
-    "run-all": "cross-env DIR=%DIR% run-s step1 step2 step3 step4 step5 step6 step7 step8 step10 step9"
+    "step11": "node updatee2edeepimport.js --dir %DIR%",
+    "run-all": "cross-env DIR=%DIR% run-s step11 step1 step2 step3 step4 step5 step6 step7 step8 step10 step9"
   },
   "keywords": [],
   "author": "",
